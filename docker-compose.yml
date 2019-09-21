@@ -1,0 +1,29 @@
+version: '3.5'
+networks:
+  serviceaddress:
+    name: serviceaddress
+services:
+  service-usps-api:
+    build:
+      context: ./service-usps-api
+      args:
+        USER: 'dockeruser'
+    ports:
+      - '8080:3000'
+    networks:
+      serviceaddress: {aliases:[service-usps-api]}
+  service-libpostal:
+    image: 'pasupulaphani/libpostal-zeromq'
+    ports:
+      - '4242:4242'
+    networks:
+      serviceaddress: {aliases:[service-libpostal]}
+  api-address-lookup:
+    build:
+      context: ./api-address-lookup
+      args:
+        USER: 'dockeruser'
+    ports:
+      - '80:3000'
+    networks:
+      serviceaddress: {aliases:[api-address-lookup]}

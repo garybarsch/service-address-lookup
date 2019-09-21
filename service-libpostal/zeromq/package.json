@@ -1,0 +1,27 @@
+{
+  "name": "node-zeromq",
+  "version": "1.0.0",
+  "description": "Provide RPC via zmq",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "DEBUG=libpostal:zeromq* node server.js"
+  },
+  "keywords": [
+    "zmq",
+    "zeromq",
+    "rpc",
+    "libpostal",
+    "node-postal"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "address-parser": "../address-parser",
+    "debug": "^2.6.0",
+    "zerorpc": "^0.9.6"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
